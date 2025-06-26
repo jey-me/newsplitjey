@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Outlet, useParams } from "react-router-dom";
-import NavMenu from "../NavMenu/NavMenu";
+import NavMenu from "../navmenu/NavMenu";
 import { usePopupStore } from "../store/usePopupStore";
 import { useGroupStore } from "../store/useGroupStore";
 import { useMembersStore } from "../store/useMembersStore";
