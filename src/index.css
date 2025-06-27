@@ -93,6 +93,24 @@ button {
   margin-top: 0.5em;
 }
 
+.centered-button {
+  display: block;
+  margin: 1rem auto;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  background: var(--primary-color);
+  color: whitesmoke;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  width: 50%;
+}
+
+@media (max-width: 600px) {
+  .centered-button {
+    width: 80%;
+  }
+}
+
 input,
 select,
 textarea {
@@ -252,7 +270,7 @@ nav {
 .extended-menu-options button svg {
   width: 16px;
   height: 16px;
-  color: #6a4caf;
+  color: var(--primary-color);
 }
 
 /* Animación de entrada (popover emerge del botón) */
