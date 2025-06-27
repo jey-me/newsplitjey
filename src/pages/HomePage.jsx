@@ -11,7 +11,7 @@ export default function HomePage() {
 
   return (
     <div style={{ padding: '16px', paddingBottom: '80px' }}>
-<h3 style={{textAlign: 'center', color: '#6a4caf' }}>
+<h3 style={{textAlign: 'center', color: "var(--primary-color)" }}>
   {event?.event_name} <span style={{ fontWeight: 400, fontSize: 12 }}>by {group?.name}</span>
 </h3>
       <MembersList />

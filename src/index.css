@@ -1,8 +1,85 @@
+/* ---------- Global Reset + Variables ---------- */
+
+:root {
+  /* Font and Rendering */
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --hover-bg: #f3f0fc;
+  --shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+  --border-color: #eee;
+
+  /* Layout constraints */
+  --max-width: 700px;
+
+  /* Spacing scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* Light Mode Colors */
+  --background-color: #f9f9f9;
+  --text-color: #333;
+  --primary-color: #6a4caf;
+  --button-bg: #6a4caf;
+  --button-text: white;
+  --popup-bg: white;
+  --nav-bg: white;
+  --input-bg: white;
+  --input-border: #ccc;
+  --tag-bg: #f0f0f0;
+  --item-bg: #f0efef;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--background-color);
+  color: var(--text-color);
+  font-family: inherit;
+}
+
+/* ---------- Dark Mode ---------- */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #242424;
+    --text-color: rgba(255, 255, 255, 0.87);
+    --primary-color: #646cff;
+    --button-bg: #1a1a1a;
+    --button-text: rgb(100, 108, 255);
+    --popup-bg: #333333;
+    --nav-bg: #1a1a1a;
+    --input-bg: #2d2d2d;
+    --input-border: #555;
+    --tag-bg: #3a3a3a;
+    --item-bg: #2c2c2c;
+    --hover-bg: #2d2d2d;
+    --shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    --border-color: #2d2d2dbf;
+  }
+}
+
+
+
 body {
   margin: 0;
   font-family: system-ui, sans-serif;
-  background: #f9f9f9;
-  color: #333;
+  background: var(--background-color);
+  color: var(--text-color);
 }
 
 button {
@@ -10,16 +87,23 @@ button {
   padding: 8px 12px;
   border: none;
   border-radius: 6px;
-  background: #6a4caf;
-  color: white;
+  background: var(--button-bg);
+  color: var(--button-text);
   font-weight: bold;
   margin-top: 0.5em;
+}
+
+input,
+select,
+textarea {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-color);
 }
 
 input {
   padding: 8px;
   border-radius: 6px;
-  border: 1px solid #ccc;
   width: 95%;
 }
 
@@ -28,7 +112,7 @@ input {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: white;
+  background: var(--popup-bg);
   padding: 24px;
   border-radius: 8px;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
@@ -60,15 +144,11 @@ input {
 }
 
 nav {
-  position: fixed;
-  bottom: 0;
   left: 0;
+  border-top: 1px solid var(--border-color);
   width: 100%;
-  background: white;
-  border-top: 1px solid #eee;
-  display: flex;
-  justify-content: space-around;
-  padding: 8px 0;
+  left: 0;
+  right: 0;
 }
 
 /* --------------------------------------------------  NavMenu */
@@ -76,12 +156,10 @@ nav {
 .nav-menu {
   position: fixed;
   bottom: 0;
-  width: 100%;
   display: flex;
   justify-content: space-around;
-  align-items: center;
   padding: 12px 0;
-  background: white;
+  background: var(--nav-bg);
   box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.08);
   z-index: 10;
 }
@@ -89,11 +167,11 @@ nav {
 .nav-menu a svg {
   width: 23px;
   height: 23px;
-  color: #6a4caf9e;
+  color: var(--primary-color);
 }
 
 .nav-menu a.active svg {
-  color: #6a4caf;
+  color: var(--primary-color);
   transform: scale(1.3);
 }
 
@@ -122,13 +200,12 @@ nav {
 .extended-menu-button svg {
   width: 28px;
   height: 28px;
-  color: #6a4caf;
+  color: var(--primary-color);
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .extended-menu-button:hover svg {
   transform: scale(1.1);
-  color: #4b2ca5;
 }
 
 /* Contenedor del menú flotante */
@@ -136,7 +213,8 @@ nav {
   position: absolute;
   bottom: 60px;
   right: -8px;
-  background: white;
+  background: var(--background-color);
+  color: var(--text-color);
   border-radius: 8px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   padding: 8px 0;
@@ -158,7 +236,7 @@ nav {
   display: flex;
   align-items: center;
   gap: 8px;  
-  color: #333;
+  color: var(--text-color);
   cursor: pointer;
   transition: background 0.2s ease;
   white-space: nowrap;
@@ -168,7 +246,7 @@ nav {
 }
 
 .extended-menu-options button:hover {
-  background: #f3f0fc;
+  background: var(--hover-bg);
 }
 
 .extended-menu-options button svg {
@@ -199,15 +277,16 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: white; /* Igual que el nav */
+  background: var(--nav-bg); /* Igual que whiteel nav */
   border-radius: 50%;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--border-color);
   padding: 5px;
+  
 }
 
 /* Main floating button */
 .action-selector-main {
-  background: #ffffff; /* Color del botón */
+  background: var(--nav-bg);
   border-radius: 50%;
   width: 38px;
   height: 38px;
@@ -215,7 +294,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--primary-color);
   border: none;
   box-shadow: none; /* SIN sombra extra, para que no flote más de la cuenta */
   margin: 0;
@@ -225,7 +304,7 @@ nav {
 .action-selector-main svg {
   width: 35px;
   height: 35px;
-  color: #6a4caf;
+  color: var(--primary-color);
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
@@ -271,7 +350,7 @@ nav {
 /* --------------------------------------------------  ShoppingList */
 
 .shopping-item {
-  background: #f0efef;
+  background: var(--item-bg);
   border-radius: 8px;
   padding: 6px 8px;
   margin: 4px 0;
@@ -330,7 +409,7 @@ nav {
 
 .action-icon {
   cursor: pointer;
-  color: #333;
+  color: var(--text-color);
 }
 
 /* Tags container */
@@ -351,7 +430,7 @@ nav {
   border-radius: 6px;
   font-size: 12px;
   margin-right: 4px;
-  color: #333;
+  color: var(--text-color);
   transition: all 0.4s ease;
 }
 
@@ -381,8 +460,8 @@ nav {
 }
 
 .member-pill.unchecked {
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: var(--tag-bg);
+  color: var(--text-color);
   display: inline-flex;
 }
 
