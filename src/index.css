@@ -38,6 +38,11 @@ input {
   max-width: 400px;
 }
 
+.popup input,
+.popup select,
+.popup textarea {
+  font-size: 16px;
+}
 .popup h3 {
   margin-top: 0;
 }
@@ -82,8 +87,8 @@ nav {
 }
 
 .nav-menu a svg {
-  width: 20px;
-  height: 20px;
+  width: 23px;
+  height: 23px;
   color: #6a4caf9e;
 }
 
@@ -360,7 +365,7 @@ nav {
 /* --------------------------------------------------  AddExpensePopup */
 
 .member-pill {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
   padding: 6px 10px;
@@ -368,6 +373,11 @@ nav {
   cursor: pointer;
   user-select: none;
   transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.member-pill input[type="checkbox"] {
+  margin: 0;
+  align-self: center;
 }
 
 .member-pill.unchecked {
