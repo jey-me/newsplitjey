@@ -5,8 +5,9 @@ import { useExpensesStore } from '../store/useExpensesStore';
 import { useMembersStore } from '../store/useMembersStore';
 
 export default function SimplifyExpensesDisplay() {
-  const expenses = useExpensesStore((state) => state.expenses.list);
-  const members = useMembersStore((state) => state.members.list);
+const members = useMembersStore((state) => state.members);
+const expenses = useExpensesStore((state) => state.expenses);
+
   const [showBalances, setShowBalances] = useState(false);
 
   const settlements = useMemo(() => simplifyExpenses(expenses, members), [expenses, members]);
@@ -21,7 +22,7 @@ export default function SimplifyExpensesDisplay() {
       </button>
 
       {showBalances && (
-        <div style={{ marginTop: '1rem', background: '#f9f9f9', padding: '0.75rem', borderRadius: '0.5rem' }}>
+        <div style={{ marginTop: '1rem', padding: '0.75rem', borderRadius: '0.5rem' }}>
           {settlements.length === 0 ? (
             <p style={{ textAlign: 'center', color: '#4b5563' }}>No hay deudas pendientes 🎉</p>
           ) : (
