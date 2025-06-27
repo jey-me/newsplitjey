@@ -13,6 +13,7 @@ export default function NavMenu() {
   const basePath = `/${groupSlug}/${eventSlug}`;
 
   return (
+    <>
     <nav className="nav-menu">
       <NavLink to={`${basePath}/home`} className={({ isActive }) => (isActive ? "active" : "")}>
         {({ isActive }) => isActive ? <HiHome /> : <HiOutlineHome />}
@@ -22,7 +23,7 @@ export default function NavMenu() {
       {({ isActive }) => isActive ? <HiShoppingCart /> : <HiOutlineShoppingCart />}
       </NavLink>
 
-      <ActionSelector />
+      <div className="nav-placeholder" /> 
 
       <NavLink to={`${basePath}/Expenses`} className={({ isActive }) => (isActive ? "active" : "")}>
       {({ isActive }) => isActive ? <RiMoneyEuroCircleFill /> : <RiMoneyEuroCircleLine />}
@@ -30,5 +31,7 @@ export default function NavMenu() {
 
       <ExtendedMenu />
     </nav>
+        <ActionSelector />
+    </>
   );
 }
