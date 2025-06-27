@@ -176,8 +176,8 @@ nav {
 }
 
 .nav-placeholder {
-  width: 37.99px; /* O el tamaño que tendría el botón "+" */
-  height: 1px; /* No hace falta altura visible */
+  width: 37.99px; 
+  height: 1px;
 }
 
 /*-----------------------------------------------ExtendeMenu */
@@ -270,14 +270,14 @@ nav {
 /* --------------------------------------------------  Action Selector Container */
 .action-selector-container {
   position: fixed;
-  bottom: 10px; /* Ajusta según el tamaño de tu nav */
+  bottom: 10px; 
   left: 50%;
   transform: translateX(-50%);
   z-index: 20;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--nav-bg); /* Igual que whiteel nav */
+  background: var(--nav-bg); 
   border-radius: 50%;
   border-top: 1px solid var(--border-color);
   padding: 5px;
@@ -296,7 +296,7 @@ nav {
   justify-content: center;
   color: var(--primary-color);
   border: none;
-  box-shadow: none; /* SIN sombra extra, para que no flote más de la cuenta */
+  box-shadow: none;
   margin: 0;
 }
 
@@ -308,10 +308,10 @@ nav {
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
-/* Feedback táctil al pulsar */
+/*-------------- Feedback táctil al pulsar */
 .action-selector-main:active svg {
   transform: scale(0.9);
-  color: #4b2ca5; /* Un lila más oscuro al pulsar */
+  color: #4b2ca5;
 }
 
 
@@ -324,14 +324,12 @@ nav {
 /* Option bubble */
 .action-selector-options {
   position: absolute;
-  width: 100px;
   bottom: 65px;
-  
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 10px;
   z-index: 20;
+  white-space: nowrap;
 }
 
 .action-selector-options button {
@@ -340,6 +338,7 @@ nav {
   cursor: pointer;
   text-align: left;
   transition: background 0.2s;
+  padding: 15px;
 }
 
 .action-selector-options button:hover {

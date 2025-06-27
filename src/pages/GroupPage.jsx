@@ -136,13 +136,14 @@ console.log("✅ Event state in HomePage:", event);
           <span
             key={m.id}
             style={{
-              padding: '6px 10px',
-              borderRadius: '16px',
-              background: '#f0f0f0',
+               borderRadius: '13px',
+              background: "var(--button-bg)",
               fontSize: '14px',
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
+              color: "var(--text-color)",
+              padding: 7,
             }}
           >
             {m.name}
@@ -155,6 +156,8 @@ console.log("✅ Event state in HomePage:", event);
                 fontSize: '16px',
                 cursor: 'pointer',
                 lineHeight: '1',
+                padding: 0,
+                marginTop: 2,
               }}
             >
               ✕
